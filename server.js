@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 const connectDb = require("./config/db");
 const { questions } = require("./routes/index");
 const swaggerJsDoc = require('swagger-jsdoc');
@@ -10,7 +11,7 @@ const HOST = '0.0.0.0';
 const app = express();
 connectDb();
 
-app.use(express.json());
+app.use(express.json(), cors());
 
 const swaggerOptions = {
 	swaggerDefinition: {
