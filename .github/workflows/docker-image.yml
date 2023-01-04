@@ -22,3 +22,6 @@ jobs:
       run: |
         docker build . --tag ghcr.io/se-ws22-ihnn/ihnn-api:latest
         docker push ghcr.io/se-ws22-ihnn/ihnn-api:latest
+
+    - name: Ping webhook
+      run: curl -X POST ${{ secrets.DEPLOY_WEBHOOK }}
